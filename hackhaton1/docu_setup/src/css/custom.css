@@ -1,0 +1,237 @@
+/**
+ * Physical AI Fundamentals - Global Custom Styles
+ * This file contains global CSS customizations for the Docusaurus site.
+ */
+
+/* Primary color palette - Blue theme */
+:root {
+  --ifm-color-primary: #4299e1;
+  --ifm-color-primary-dark: #3182ce;
+  --ifm-color-primary-darker: #2b6cb0;
+  --ifm-color-primary-darkest: #2c5282;
+  --ifm-color-primary-light: #63b3ed;
+  --ifm-color-primary-lighter: #90cdf4;
+  --ifm-color-primary-lightest: #bee3f8;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Custom design tokens */
+  --custom-gradient-primary: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+  --custom-gradient-success: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  --custom-gradient-warning: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  --custom-gradient-purple: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+  --custom-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --custom-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --custom-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+  --custom-border-radius: 12px;
+}
+
+/* Dark mode color adjustments */
+[data-theme='dark'] {
+  --ifm-color-primary: #63b3ed;
+  --ifm-color-primary-dark: #4299e1;
+  --ifm-color-primary-darker: #3182ce;
+  --ifm-color-primary-darkest: #2b6cb0;
+  --ifm-color-primary-light: #90cdf4;
+  --ifm-color-primary-lighter: #bee3f8;
+  --ifm-color-primary-lightest: #ebf8ff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-background-color: #1a202c;
+  --ifm-background-surface-color: #2d3748;
+}
+
+/* Navbar customization */
+.navbar {
+  box-shadow: var(--custom-shadow-sm);
+}
+
+[data-theme='dark'] .navbar {
+  background: #1a202c;
+}
+
+.navbar__title {
+  font-weight: 700;
+}
+
+.navbar__link {
+  font-weight: 500;
+}
+
+/* Footer customization */
+.footer {
+  background: #0a1628;
+}
+
+.footer__title {
+  font-weight: 600;
+}
+
+.footer__link-item {
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+/* Docs page improvements */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-toc-border-color);
+}
+
+.menu__link {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.menu__link--active {
+  background: var(--custom-gradient-primary);
+  color: #ffffff;
+}
+
+.menu__link--active:hover {
+  background: var(--custom-gradient-primary);
+  color: #ffffff;
+}
+
+/* Table of contents */
+.table-of-contents__link {
+  transition: color 0.2s ease;
+}
+
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Code blocks */
+.prism-code {
+  border-radius: var(--custom-border-radius);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: rgba(66, 153, 225, 0.1);
+  border-radius: 0 var(--custom-border-radius) var(--custom-border-radius) 0;
+  padding: 1rem 1.5rem;
+}
+
+[data-theme='dark'] blockquote {
+  background: rgba(66, 153, 225, 0.15);
+}
+
+/* Admonitions (tips, warnings, etc.) */
+.admonition {
+  border-radius: var(--custom-border-radius);
+  box-shadow: var(--custom-shadow-sm);
+}
+
+/* Links */
+article a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+article a:hover {
+  border-bottom-color: var(--ifm-color-primary);
+}
+
+/* Buttons */
+.button {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.button--primary {
+  background: var(--custom-gradient-primary);
+  border: none;
+}
+
+.button--primary:hover {
+  background: var(--custom-gradient-primary);
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Cards in markdown */
+.card {
+  border-radius: var(--custom-border-radius);
+  box-shadow: var(--custom-shadow-md);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--custom-shadow-lg);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(66, 153, 225, 0.3);
+}
+
+[data-theme='dark'] ::selection {
+  background: rgba(99, 179, 237, 0.3);
+}
+
+/* Smooth transitions for theme switching */
+html {
+  transition: background-color 0.3s ease;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide default hero banner for custom homepage */
+.hero--primary {
+  display: none;
+}
