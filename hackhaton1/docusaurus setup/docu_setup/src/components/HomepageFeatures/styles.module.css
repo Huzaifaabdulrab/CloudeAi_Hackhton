@@ -1,0 +1,228 @@
+/**
+ * Chapter Cards Styles
+ */
+
+.features {
+  padding: 4rem 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: #f7fafc;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: #718096;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+[data-theme='dark'] .sectionSubtitle {
+  color: #a0aec0;
+}
+
+/* Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card Wrapper for Animation */
+.cardWrapper {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.cardWrapper:nth-child(1) { animation-delay: 0.1s; }
+.cardWrapper:nth-child(2) { animation-delay: 0.2s; }
+.cardWrapper:nth-child(3) { animation-delay: 0.3s; }
+.cardWrapper:nth-child(4) { animation-delay: 0.4s; }
+.cardWrapper:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Styles */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .card {
+  background: #2d3748;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Icon */
+.cardIconWrapper {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIcon {
+  font-size: 3rem;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Card Content */
+.cardContent {
+  padding: 1.5rem 2rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+[data-theme='dark'] .cardTitle {
+  color: #f7fafc;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: #718096;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme='dark'] .cardDescription {
+  color: #a0aec0;
+}
+
+/* Card Button */
+.cardButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4299e1;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cardButton:hover {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+[data-theme='dark'] .cardButton {
+  color: #63b3ed;
+}
+
+[data-theme='dark'] .cardButton:hover {
+  color: #90cdf4;
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.cardButton:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 996px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .features {
+    padding: 2rem 0;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+
+  .cardIconWrapper {
+    padding: 1.5rem;
+  }
+
+  .cardIcon {
+    font-size: 2.5rem;
+  }
+
+  .cardContent {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.15rem;
+  }
+
+  .cardDescription {
+    font-size: 0.9rem;
+  }
+}

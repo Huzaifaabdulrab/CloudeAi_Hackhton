@@ -1,0 +1,150 @@
+# Textbook Content API Contract
+
+This contract defines the interface for textbook content management and delivery.
+
+## Content Retrieval API
+
+### Get Chapter Content
+```
+GET /api/chapter/{chapterId}
+```
+
+#### Path Parameters
+- `chapterId` (string, required): Unique identifier for the chapter (e.g., "chapter-1-intro-physical-ai")
+
+#### Response
+```json
+{
+  "id": "chapter-1-intro-physical-ai",
+  "title": "Introduction to Physical AI and Embodied Intelligence",
+  "content": "# Introduction to Physical AI\n\nPhysical AI represents...",
+  "learningObjectives": [
+    "Understand fundamental concepts of Physical AI",
+    "Explain embodied intelligence principles",
+    ...
+  ],
+  "prerequisites": [
+    "none"
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Simple Robot Interaction",
+      "description": "Basic example demonstrating sensorimotor integration",
+      "implementation": "Code implementation here...",
+      "difficulty": "Beginner"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise-1",
+      "title": "Implement Basic Sensor Reading",
+      "description": "Create a simple sensor reading function",
+      "instructions": "Detailed instructions here...",
+      "difficulty": "Beginner",
+      "timeEstimate": 30
+    }
+  ],
+  "codeSnippets": [
+    {
+      "id": "snippet-1",
+      "language": "python",
+      "code": "def sensor_reading():\n    # Implementation here",
+      "description": "Basic sensor reading function",
+      "explanation": "This function demonstrates basic sensor reading..."
+    }
+  ],
+  "visualAids": [
+    {
+      "id": "visual-1",
+      "type": "diagram",
+      "title": "Physical AI Concept Diagram",
+      "description": "Visual representation of Physical AI concepts",
+      "filePath": "/static/img/chapter-1-concept-diagram.svg",
+      "altText": "Diagram showing components of Physical AI"
+    }
+  ]
+}
+```
+
+#### Error Responses
+- `404 Not Found`: Chapter with the given ID does not exist
+
+### Get All Chapters
+```
+GET /api/chapters
+```
+
+#### Response
+```json
+[
+  {
+    "id": "chapter-1-intro-physical-ai",
+    "title": "Introduction to Physical AI and Embodied Intelligence",
+    "description": "Foundational concepts of Physical AI and embodied intelligence",
+    "order": 1,
+    "prerequisites": []
+  },
+  {
+    "id": "chapter-2-ros2",
+    "title": "ROS 2 and its implementation in humanoid robots",
+    "description": "Understanding ROS 2 for humanoid robotics applications",
+    "order": 2,
+    "prerequisites": ["chapter-1-intro-physical-ai"]
+  }
+  // ... additional chapters
+]
+```
+
+## Search API
+
+### Search Content
+```
+GET /api/search
+```
+
+#### Query Parameters
+- `q` (string, required): Search query
+- `type` (string, optional): Filter by content type (chapter, example, exercise, etc.)
+
+#### Response
+```json
+{
+  "results": [
+    {
+      "type": "chapter",
+      "id": "chapter-1-intro-physical-ai",
+      "title": "Introduction to Physical AI and Embodied Intelligence",
+      "snippet": "Physical AI represents...",
+      "relevance": 0.95
+    }
+  ]
+}
+```
+
+## Assessment API
+
+### Submit Exercise Solution
+```
+POST /api/exercise/{exerciseId}/submit
+```
+
+#### Path Parameters
+- `exerciseId` (string, required): Unique identifier for the exercise
+
+#### Request Body
+```json
+{
+  "solution": "Code solution here...",
+  "userId": "user-identifier"
+}
+```
+
+#### Response
+```json
+{
+  "status": "evaluating" | "success" | "failure",
+  "feedback": "Detailed feedback on the solution",
+  "score": 85
+}
+```

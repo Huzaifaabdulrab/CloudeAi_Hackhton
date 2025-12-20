@@ -1,0 +1,10 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+cohere==5.9.2
+qdrant-client==1.11.0
+psycopg2-binary==2.9.9
+pydantic==2.9.2
+python-dotenv==1.0.1
+python-multipart==0.0.9
+slowapi==0.1.9
+requests==2.32.3
