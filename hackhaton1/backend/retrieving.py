@@ -30,7 +30,7 @@ class RAGRetriever:
             self.qdrant_client = QdrantClient(url=qdrant_url)
 
         # Default collection name
-        self.collection_name = "rag_embedding"
+        self.collection_name = "book_chunks"
 
     def get_embedding(self, text: str) -> List[float]:
         """
