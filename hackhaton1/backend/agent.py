@@ -103,6 +103,7 @@ class RAGAgent:
 
         try:
             result = await Runner.run(self.agent, query_text)
+            logger.info(f"Runner result: {result}")
 
             # Extract the assistant's response
             assistant_response = result.final_output

@@ -26,7 +26,7 @@ class DocusaurusEmbeddingPipeline:
         self.cohere_client = cohere.Client(api_key=os.getenv("COHERE_API_KEY"))
 
         # Initialize Qdrant client
-        qdrant_url = os.getenv("QDRANT_URL", "http://localhost:8000")
+        qdrant_url = os.getenv("QDRANT_URL")
         qdrant_api_key = os.getenv("QDRANT_API_KEY")
 
         if qdrant_api_key:
@@ -184,7 +184,7 @@ class DocusaurusEmbeddingPipeline:
             logger.error(f"Error generating embedding for text: {e}")
             return []
 
-    def create_collection(self, collection_name: str = "rag_embedding"):
+    def create_collection(self, collection_name: str = "book_chunks"):
         """
         Create a Qdrant collection for storing embeddings
         """
@@ -209,7 +209,7 @@ class DocusaurusEmbeddingPipeline:
             logger.error(f"Error creating collection {collection_name}: {e}")
             raise
 
-    def save_chunk_to_qdrant(self, content: str, url: str, embedding: List[float], position: int, collection_name: str = "rag_embedding"):
+    def save_chunk_to_qdrant(self, content: str, url: str, embedding: List[float], position: int, collection_name: str = "book_chunks"):
         """
         Save a text chunk with its embedding to Qdrant
         """
@@ -256,7 +256,7 @@ def main():
     try:
         # Step 1: Create the Qdrant collection
         logger.info("Creating Qdrant collection...")
-        pipeline.create_collection("rag_embedding")
+        pipeline.create_collection("book_chunks")
 
         # Step 2: Get all URLs from the target Docusaurus site
         logger.info(f"Extracting URLs from {pipeline.target_url}...")

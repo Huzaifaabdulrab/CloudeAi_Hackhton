@@ -1,5 +1,6 @@
 # backend/rag.py
 import logging
+import os
 from typing import List
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,12 +8,14 @@ from pydantic import BaseModel
 import cohere
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
+from dotenv import load_dotenv
 
 # ---------------- CONFIG ----------------
+load_dotenv()
 
-COHERE_API_KEY = "mjrsrtqiodlwcrOz9ItqGKX7dZQkPhahqFcFgoso" 
-QDRANT_URL = "https://4ff5c5bb-e674-475e-bb03-5aa5097164ba.europe-west3-0.gcp.cloud.qdrant.io"
-QDRANT_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.7qQ97iIY4oDMLntrPl9bpHILLCSw7P8f9kmq12cZlRA"
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+QDRANT_URL = os.getenv("QDRANT_URL")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 COLLECTION_NAME = "book_chunks"
 
 # ----------------------------------------
@@ -55,15 +58,20 @@ def embed_query(text: str) -> List[float]:
     )
     return res.embeddings[0]
 
-
 def search_book(vector: List[float], limit: int = 5):
-    results = qdrant.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=vector,
-        limit=limit
-    )
-    return results
-
+    try:
+        results = qdrant.search(
+            collection_name=COLLECTION_NAME,
+            query_vector=vector,
+            limit=limit,
+            with_payload=True,  # YE ADD KARO - content access ke liye zaroori
+            with_vectors=False
+        )
+        logger.info(f"Qdrant found {len(results)} results")
+        return results
+    except Exception as e:
+        logger.error(f"Qdrant search error: {e}")
+        return []
 
 def build_prompt(context: str, question: str) -> str:
     return f"""
@@ -102,16 +110,18 @@ async def chat(req: ChatRequest):
 
     # 2. search book
     points = search_book(query_vector)
+    logger.info(f"Retrieved points: {points}")
 
     if not points:
         return {"reply": "I don't know"}
 
     # 3. build context from book
     context = "\n\n".join([
-        p.payload["content"]
+        p.payload.get("content", "")
         for p in points
-        if p.payload and "content" in p.payload
+        if p.payload
     ])
+    logger.info(f"Constructed context: {context}")
 
     if not context.strip():
         return {"reply": "I don't know"}
