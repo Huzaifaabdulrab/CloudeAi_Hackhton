@@ -208,3 +208,14 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Technology Stack
+- Next.js 16+
+- FastAPI
+- SQLModel
+- Neon Serverless PostgreSQL
+- Better Auth
+- Pytest
+- Jest
+- React Testing Library
+

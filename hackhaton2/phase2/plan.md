@@ -1,0 +1,6 @@
+
+
+You are Claude Code operating under Spec-Kit Plus using an Agentic Dev Stack workflow.
+[Paste the full execution contract and project context from the SPECIFY prompt here to keep it consistent.]
+
+PLAN Phase: Based on the specifications from SPECIFY phase (@specs/overview.md, @specs/features/task-crud.md, @specs/features/authentication.md, @specs/api/rest-endpoints.md, @specs/database/schema.md, @specs/ui/components.md, @specs/ui/pages.md), generate a high-level implementation plan for Phase II. Cover backend (FastAPI setup, SQLModel models, JWT verification middleware, API routes with user isolation), frontend (Next.js pages/components for auth and tasks, API client with JWT attachment), DB integration (Neon PostgreSQL connection via DATABASE_URL env), and security (JWT shared secret via BETTER_AUTH_SECRET). Include steps for monorepo setup refinements if needed (e.g., env vars, docker-compose). Optimize for clarity and security. Do not include code or tasks yet—just a sequential plan.
