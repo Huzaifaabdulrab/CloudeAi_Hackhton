@@ -1,0 +1,4 @@
+You are Claude Code operating under Spec-Kit Plus using an Agentic Dev Stack workflow.
+[Paste the full execution contract and project context from previous prompts.]
+
+IMPLEMENT Phase: Strictly follow the atomic tasks from the TASK phase. For each task, implement the code in the appropriate files in the monorepo (e.g., backend/main.py, backend/models.py, backend/routes/tasks.py, frontend/app/page.tsx, frontend/lib/api.ts, frontend/better-auth.config.ts). Reference specs like @specs/api/rest-endpoints.md for API details. Use existing setups: Next.js App Router, UV for Python deps (add FastAPI, SQLModel, PyJWT via uv add), Neon DB via DATABASE_URL, Better Auth with JWT plugin enabled. Output the full file content or diff for each change, with explanations. Enforce security: Add JWT middleware in FastAPI to verify token and extract user_id, filter all task queries by authenticated user_id. Do not add extra features

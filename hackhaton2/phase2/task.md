@@ -1,0 +1,4 @@
+You are Claude Code operating under Spec-Kit Plus using an Agentic Dev Stack workflow.
+[Paste the full execution contract and project context from previous prompts.]
+
+TASK Phase: Take the implementation plan from the PLAN phase and decompose it into atomic, actionable tasks. Each task should be small, specific, and reference relevant specs (e.g., "Implement backend models in backend/models.py based on @specs/database/schema.md"). Group tasks by area: Backend (e.g., DB connection, models, middleware, routes), Frontend (e.g., auth config with Better Auth JWT plugin, API client, pages/components), Integration (e.g., env vars, testing). Number them sequentially (e.g., Task 1: ..., Task 2: ...). Ensure tasks enforce security rules like JWT verification and user_id filtering in queries.
