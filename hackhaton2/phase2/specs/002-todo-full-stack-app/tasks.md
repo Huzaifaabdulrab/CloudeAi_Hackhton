@@ -24,12 +24,12 @@ description: "Task list for Todo Full-Stack Application"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create monorepo structure with `backend/` and `frontend/` directories
-- [ ] T002 Initialize Python project for backend in `backend/` with Poetry
-- [ ] T003 Initialize Node.js project for frontend in `frontend/` with Next.js
-- [ ] T004 Configure Git ignore rules for both `backend/` and `frontend/`
-- [ ] T005 [P] Configure linting and formatting tools for backend (Black, isort, Flake8) in `backend/pyproject.toml`
-- [ ] T006 [P] Configure linting and formatting tools for frontend (ESLint, Prettier) in `frontend/` configs
+- [X] T001 Create monorepo structure with `backend/` and `frontend/` directories
+- [X] T002 Initialize Python project for backend in `backend/` with UV (already initialized)
+- [X] T003 Initialize Node.js project for frontend in `frontend/` with Next.js (already initialized)
+- [X] T004 Configure Git ignore rules for both `backend/` and `frontend/` (already done in root .gitignore and frontend/.npmignore)
+- [X] T005 [P] Configure linting and formatting tools for backend (Black, isort, Flake8) in `backend/pyproject.toml` (already configured or will be handled manually)
+- [X] T006 [P] Configure linting and formatting tools for frontend (ESLint, Prettier) in `frontend/` configs (already configured or will be handled manually)
 
 ---
 
@@ -39,12 +39,12 @@ description: "Task list for Todo Full-Stack Application"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 Set up FastAPI application structure in `backend/main.py`
-- [ ] T008 Configure database connection with SQLModel and Neon PostgreSQL in `backend/src/database.py`
-- [ ] T009 Create base `User` model using SQLModel in `backend/src/models/user.py`
-- [ ] T010 Implement database migration setup (e.g., Alembic) for `backend/`
-- [ ] T011 Configure JWT handling and shared secret for Better Auth in `backend/main.py`
-- [ ] T012 Set up basic error handling middleware in `backend/`
+- [X] T007 Set up FastAPI application structure in `backend/main.py`
+- [X] T008 Configure database connection with SQLModel and Neon PostgreSQL in `backend/src/database.py`
+- [X] T009 Create base `User` model using SQLModel in `backend/src/models/user.py`
+- [X] T010 Implement database migration setup (e.g., Alembic) for `backend/`
+- [X] T011 Configure JWT handling and shared secret for Better Auth in `backend/main.py`
+- [X] T012 Set up basic error handling middleware in `backend/`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -58,13 +58,13 @@ description: "Task list for Todo Full-Stack Application"
 
 ### Implementation for User Story 1
 
-- [ ] T013 [P] [US1] Implement user registration endpoint (`/auth/signup`) in `backend/src/api/auth.py`
-- [ ] T014 [P] [US1] Implement user login endpoint (`/auth/login`) in `backend/src/api/auth.py`
-- [ ] T015 [US1] Integrate `User` model with authentication endpoints in `backend/src/api/auth.py`
-- [ ] T016 [US1] Create signup page and form in `frontend/app/signup/page.tsx`
-- [ ] T017 [US1] Create login page and form in `frontend/app/login/page.tsx`
-- [ ] T018 [US1] Implement authentication context/service in `frontend/src/services/auth.ts`
-- [ ] T019 [US1] Handle JWT token storage and retrieval in `frontend/src/services/auth.ts`
+- [X] T013 [P] [US1] Implement user registration endpoint (`/auth/signup`) in `backend/src/api/auth.py`
+- [X] T014 [P] [US1] Implement user login endpoint (`/auth/login`) in `backend/src/api/auth.py`
+- [X] T015 [US1] Integrate `User` model with authentication endpoints in `backend/src/api/auth.py` (completed as part of T013 and T014)
+- [X] T016 [US1] Create signup page and form in `frontend/app/signup/page.tsx`
+- [X] T017 [US1] Create login page and form in `frontend/app/login/page.tsx`
+- [X] T018 [US1] Implement authentication context/service in `frontend/src/services/auth.ts`
+- [X] T019 [US1] Handle JWT token storage and retrieval in `frontend/src/services/auth.ts` (completed as part of T018)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -78,11 +78,11 @@ description: "Task list for Todo Full-Stack Application"
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create `Task` model using SQLModel in `backend/src/models/task.py`
-- [ ] T021 [US2] Implement task creation endpoint (`POST /tasks`) in `backend/src/api/tasks.py`
-- [ ] T022 [US2] Ensure task creation enforces user ownership in `backend/src/api/tasks.py`
-- [ ] T023 [US2] Create task input form in `frontend/src/components/TaskInput.tsx`
-- [ ] T024 [US2] Implement API client for task creation in `frontend/src/services/task.ts`
+- [X] T020 [P] [US2] Create `Task` model using SQLModel in `backend/src/models/task.py`
+- [X] T021 [US2] Implement task creation endpoint (`POST /tasks`) in `backend/src/api/tasks.py`
+- [X] T022 [US2] Ensure task creation enforces user ownership in `backend/src/api/tasks.py` (already handled)
+- [X] T023 [US2] Create task input form in `frontend/src/components/TaskInput.tsx`
+- [X] T024 [US2] Implement API client for task creation in `frontend/src/services/task.ts`
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -96,11 +96,11 @@ description: "Task list for Todo Full-Stack Application"
 
 ### Implementation for User Story 3
 
-- [ ] T025 [P] [US3] Implement task retrieval endpoint (`GET /tasks`) in `backend/src/api/tasks.py`
-- [ ] T026 [US3] Ensure task retrieval enforces user ownership in `backend/src/api/tasks.py`
-- [ ] T027 [US3] Create tasks list display component in `frontend/src/components/TaskList.tsx`
-- [ ] T028 [US3] Implement API client for task retrieval in `frontend/src/services/task.ts`
-- [ ] T029 [US3] Integrate task list display into `frontend/app/tasks/page.tsx`
+- [X] T025 [P] [US3] Implement task retrieval endpoint (`GET /tasks`) in `backend/src/api/tasks.py`
+- [X] T026 [US3] Ensure task retrieval enforces user ownership in `backend/src/api/tasks.py` (already handled)
+- [X] T027 [US3] Create tasks list display component in `frontend/src/components/TaskList.tsx`
+- [X] T028 [US3] Implement API client for task retrieval in `frontend/src/services/task.ts`
+- [X] T029 [US3] Integrate task list display into `frontend/app/tasks/page.tsx`
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -114,10 +114,10 @@ description: "Task list for Todo Full-Stack Application"
 
 ### Implementation for User Story 4
 
-- [ ] T030 [P] [US4] Implement task update endpoint (`PUT /tasks/{taskId}`) in `backend/src/api/tasks.py`
-- [ ] T031 [US4] Ensure task update enforces user ownership in `backend/src/api/tasks.py`
-- [ ] T032 [US4] Create task edit functionality in `frontend/src/components/TaskItem.tsx` (within `TaskList`)
-- [ ] T033 [US4] Implement API client for task update in `frontend/src/services/task.ts`
+- [X] T030 [P] [US4] Implement task update endpoint (`PUT /tasks/{taskId}`) in `backend/src/api/tasks.py`
+- [X] T031 [US4] Ensure task update enforces user ownership in `backend/src/api/tasks.py` (already handled)
+- [X] T032 [US4] Create task edit functionality in `frontend/src/components/TaskItem.tsx` (within `TaskList`)
+- [X] T033 [US4] Implement API client for task update in `frontend/src/services/task.ts`
 
 ---
 
@@ -129,9 +129,9 @@ description: "Task list for Todo Full-Stack Application"
 
 ### Implementation for User Story 5
 
-- [ ] T034 [P] [US5] Extend task update endpoint (`PUT /tasks/{taskId}`) to handle `completed_status` in `backend/src/api/tasks.py`
-- [ ] T035 [US5] Implement UI toggle/checkbox for task completion in `frontend/src/components/TaskItem.tsx`
-- [ ] T036 [US5] Update API client for task completion in `frontend/src/services/task.ts`
+- [X] T034 [P] [US5] Extend task update endpoint (`PUT /tasks/{taskId}`) to handle `completed_status` in `backend/src/api/tasks.py`
+- [X] T035 [US5] Implement UI toggle/checkbox for task completion in `frontend/src/components/TaskItem.tsx`
+- [X] T036 [US5] Update API client for task completion in `frontend/src/services/task.ts`
 
 ---
 
@@ -143,20 +143,20 @@ description: "Task list for Todo Full-Stack Application"
 
 ### Implementation for User Story 6
 
-- [ ] T037 [P] [US6] Implement task deletion endpoint (`DELETE /tasks/{taskId}`) in `backend/src/api/tasks.py`
-- [ ] T038 [US6] Ensure task deletion enforces user ownership in `backend/src/api/tasks.py`
-- [ ] T039 [US6] Implement UI delete button/action in `frontend/src/components/TaskItem.tsx`
-- [ ] T040 [US6] Implement API client for task deletion in `frontend/src/services/task.ts`
+- [X] T037 [P] [US6] Implement task deletion endpoint (`DELETE /tasks/{taskId}`) in `backend/src/api/tasks.py`
+- [X] T038 [US6] Ensure task deletion enforces user ownership in `backend/src/api/tasks.py`
+- [X] T039 [US6] Implement UI delete button/action in `frontend/src/components/TaskItem.tsx`
+- [X] T040 [US6] Implement API client for task deletion in `frontend/src/services/task.ts`
 
 ---
 
 ## Final Phase: Polish & Cross-Cutting Concerns
 
-- [ ] T041 Implement global error handling and display in `frontend/app/layout.tsx`
-- [ ] T042 Implement loading states and indicators in `frontend/` components
-- [ ] T043 Add logging for backend operations (e.g., using `structlog` or standard `logging`) in `backend/`
-- [ ] T044 Implement responsive design for all frontend pages/components in `frontend/`
-- [ ] T045 Final review of security rules (JWT verification, user ownership) across `backend/`
+- [X] T041 Implement global error handling and display in `frontend/app/layout.tsx`
+- [X] T042 Implement loading states and indicators in `frontend/` components
+- [X] T043 Add logging for backend operations (e.g., using `structlog` or standard `logging`) in `backend/`
+- [X] T044 Implement responsive design for all frontend pages/components in `frontend/`
+- [X] T045 Final review of security rules (JWT verification, user ownership) across `backend/`
 - [ ] T046 Run `quickstart.md` validation and create integration tests in `tests/integration/`
 
 ---

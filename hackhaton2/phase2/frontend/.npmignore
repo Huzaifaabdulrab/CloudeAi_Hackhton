@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+dist/
+build/
+*.log
+.env*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Next.js
+.next/
+out/ # Next.js export directory
+
+# Linting and formatting
+.eslintcache
+.prettierignore
+eslint.config.mjs
+postcss.config.mjs
+tailwind.config.ts
+
+# Configuration files that shouldn't be published
+tsconfig.json
+next.config.mjs
+
+# Test and coverage artifacts
+coverage/
+*.test.js
+*.spec.js
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Visual Studio Code specific files
+.vscode/
