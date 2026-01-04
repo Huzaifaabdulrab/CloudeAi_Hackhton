@@ -42,8 +42,8 @@ def create_jwt_token(data: dict):
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
-app.include_router(auth.router) # Include the auth router
-app.include_router(tasks.router) # Include the tasks router
+app.include_router(auth.router, prefix="/api") # Include the auth router
+app.include_router(tasks.router, prefix="/api") # Include the tasks router
 
 @app.on_event("startup")
 async def startup_event():
